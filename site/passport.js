@@ -3,7 +3,10 @@ const localstrategy=require('passport-local').Strategy
 const users=require('./database').users
 
 passport.use(
-    new localstrategy((email,password,done)=>{
+    new localstrategy({
+        usernameField:'email',    //as to change the default parameters
+        passwordField:'password'
+    },(email,password,done)=>{
         users.findOne({
             where:{
                 email, //{email:email}

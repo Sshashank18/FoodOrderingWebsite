@@ -7,7 +7,8 @@ const foodorder=new Sequelize('foodorder','root','root',{    //creating database
     pool:{
         min:0,
         max:6
-    }
+    },
+    // logging: false
 })
 
 const users=foodorder.define('Users',{    //Creating a Users table in foodorder database

@@ -5,6 +5,9 @@ const passport=require('./passport')
 
 const app=express()
 
+app.use(express.json())
+app.use(express.urlencoded({extended: true}));
+
 app.use(session({
     secret:'Food is the key',
     resave:false,
@@ -13,9 +16,6 @@ app.use(session({
 
 app.use(passport.initialize())
 app.use(passport.session())
-
-// app.use('/login',express.static(__dirname+'signup/login.html'))
-// app.use('/signup',express.static(__dirname+'signup/signup.html'))
 
 app.use(express.static('public'))
 
@@ -37,7 +37,6 @@ app.post('/login',
 )
 
 app.post('/signup',(req,res)=>{
-    console.log(req.body)
     users.create({
         username:req.body.username,
         email:req.body.email,
@@ -45,7 +44,6 @@ app.post('/signup',(req,res)=>{
         address:req.body.address,
         state:req.body.state
     }).then((user)=>{
-        console.log(user)
         res.redirect('/login')
     }).catch(err=>{
         console.error(err)
@@ -53,9 +51,11 @@ app.post('/signup',(req,res)=>{
     })
 })
 
-function checkLoggedin(req,res){
+function checkLoggedin(req,res,next){
     if(req.user)
+    {
         return next()
+    }        
     res.redirect('/login')
 }
 
