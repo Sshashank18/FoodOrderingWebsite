@@ -1,0 +1,63 @@
+body{
+    margin:0px;
+}
+.logobg{
+    height:350px;
+    max-width: 100%;
+    filter: blur(2.7px)
+}
+/* .homebtn{
+    /* margin-bottom:250px;
+    margin-top:200px; 
+}
+.homebtn1{
+    margin-left:620px;
+} */
+
+.mcontainer{
+    /* margin:0px; */
+    padding-left:30px;
+    text-align: center;
+}
+
+.card{
+    border: none;
+    width:250px;
+    display: inline-block;
+}
+
+.about{
+    font-size:20px;
+}
+
+.about{
+    z-index: 1;
+    display: block;
+    background-image: url('./images/aboutbg.jpg');
+    background-repeat: no-repeat;
+    background-size: 1300px 400px;
+    filter:blur(2px);
+}
+
+.order{
+    text-align: center;
+}
+
+.footer{
+    background-color:black;
+    color:white;
+}
+
+hr{
+    border-color: lightgray;
+}
+
+.social{
+    margin-left:700px;
+}
+
+h6{
+    font-size:10px;
+}
+
+

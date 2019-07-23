@@ -27,7 +27,7 @@ body{
 .mycontainer{
     width:100%;
     height:657px;
-    background-image: url(./loginbg.jpg);
+    background-image: url(./images/loginbg.jpg);
     background-size:1400px 670px;
     background-repeat:no-repeat;
     background-color: black;

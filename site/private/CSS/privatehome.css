@@ -1,0 +1,21 @@
+.logobg{
+    height: 300px;
+}
+.item{
+    background-image:url('./images/background.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.wrapper{
+    display:flex;
+    width:100%;
+    align-items:stretch;    /* stretch value will equalize both page content and sidebar height. */
+}
+#sidebar{
+    min-width: 250px;
+    max-width:250px;
+    min-height: 10vh;
+}
+#sidebar.active{
+    margin-left:-250px;
+}

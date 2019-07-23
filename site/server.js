@@ -32,7 +32,8 @@ app.get('/signup',(req,res)=>{
 app.post('/login',
     passport.authenticate('local',{
         successRedirect:'/home',
-        failureRedirect:'/login'
+        failureRedirect:'/login',
+        // failureFlash:true
     })
 )
 

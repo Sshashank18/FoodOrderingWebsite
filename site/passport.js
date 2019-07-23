@@ -12,7 +12,7 @@ passport.use(
                 email, //{email:email}
             },
         }).then((user)=>{
-            if(!user) return done(new Error('Email invalid'))
+            if(!user) return done(null,false,{message:"Email invalid"})
             if(user.password!=password) return done(null,false,{message:"Wrong Password"})
             done(null,user)
         })
