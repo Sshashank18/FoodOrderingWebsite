@@ -1,3 +1,6 @@
+body{
+    margin:0px;
+}
 .logobg{
     height: 300px;
 }
@@ -6,16 +9,49 @@
     background-repeat:no-repeat;
     background-size:cover;
 }
-.wrapper{
-    display:flex;
+.mcontainer{
+    padding-left: 50px;
     width:100%;
-    align-items:stretch;    /* stretch value will equalize both page content and sidebar height. */
+    height:300px;
+    background-image: url("./images/background.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
 }
-#sidebar{
-    min-width: 250px;
-    max-width:250px;
-    min-height: 10vh;
+.doc{
+    position: absolute;
+    right:-320px;
 }
-#sidebar.active{
-    margin-left:-250px;
+.sidebar{
+    height:100vh;
+    width:320px;
+    float:right;
+    background-color: black;
+}
+.hidemenu{
+    float:right;
+    margin-top:-20px;
+}
+.sidehide{
+    float:left;
+    color:white;
+}
+.show{
+    right:0;
+    transition:0.5s;
+}
+.footer{
+    background-color:black;
+    color:white;
+}
+hr{
+    border-color: antiquewhite;
+}
+.social{
+    margin-left:700px;
+}
+.headcontent{
+    margin-left:300px;
+}
+.btn1{
+    margin-left:150px;
 }
