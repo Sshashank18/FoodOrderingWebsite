@@ -55,3 +55,34 @@ hr{
 .btn1{
     margin-left:150px;
 }
+.hide2b{
+    display:none;
+    position: relative;
+    margin-top:70px;
+    left:370px;
+}
+
+.hide2l{
+    display:none;
+    position: relative;
+    margin-top:70px;
+    left:-35px;
+}
+.hide2d{
+    display: none;
+    position:relative;
+    margin-top:70px;
+    left:-370px;
+}
+.show2{
+    display:block;
+}
+.foodcontainer{
+    display:flex;
+    justify-content: space-evenly;
+    height:350px;
+    padding-top:80px;
+}
+
+
+

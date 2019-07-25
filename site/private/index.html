@@ -20,13 +20,16 @@
     
     <div class="doc">
         <!-- Side Bar -->
-        <div class="sidebar">
-            <div class="sidehide hide">
-                <i class="fa fa-times" aria-hidden="true"></i>
+        <div class="sideh">
+            <div class="sidebar">
+                <div class="sidehide hide">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <h3>Hii Shashank</h3>
+                <div>Your Orders</div>
             </div>
-            <h3>Hii Shashank</h3>
-            <div>Your Orders</div>
         </div>
+        
         <!-- Home Banner -->
         <div class="mcontainer">
             <div>
@@ -38,16 +41,31 @@
         </div>
         
         <!-- Content -->
-        <div class="container">
-                <h3 class="headcontent">What time is it?</h3><br><br>
-                <button class="btn btn-outline-success btn-lg btn1" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Breakfast</button>
-                <button class="btn btn-outline-success btn-lg btn1" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Lunch</button>
-                <button class="btn btn-outline-success btn-lg btn1" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Dinner</button>
-            
-            <div class="collapse " id="collapseExample">
-                <a href="#">Veg | </a>
-                <a href="#">Egg | </a>
-                <a href="#">Non-Veg</a>
+        <h3 class="headcontent">What time is it?</h3><br><br>
+        <div class="foodcontainer">
+            <div id="breakfast">
+                <button class="btn btn-outline-success btn-lg" id="btnfoodb">Breakfast</button>
+                <div class="hide2b">
+                    <a href="#">Veg | </a>
+                    <a href="#">Egg | </a>
+                    <a href="#">Non-Veg</a>
+                </div>
+            </div>
+            <div id="lunch">
+                <button class="btn btn-outline-success btn-lg" id="btnfoodl">Lunch</button>
+                <div class="hide2l">
+                    <a href="#">Veg | </a>
+                    <a href="#">Egg | </a>
+                    <a href="#">Non-Veg</a>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-outline-success btn-lg" id="btnfoodd">Dinner</button>
+                <div class="hide2d">
+                    <a href="#">Veg | </a>
+                    <a href="#">Egg | </a>
+                    <a href="#">Non-Veg</a>
+                </div>
             </div>
         </div>
         
@@ -94,6 +112,15 @@
     <script type="text/javascript">
         $('.hide').click(()=>{
             $('.doc').toggleClass("show");
+        })
+        $('#btnfoodb').click(()=>{
+            $('.hide2b').toggleClass("show2");
+        })
+        $('#btnfoodl').click(()=>{
+            $('.hide2l').toggleClass("show2");
+        })
+        $('#btnfoodd').click(()=>{
+            $('.hide2d').toggleClass("show2");
         })
     </script>
 </body>
