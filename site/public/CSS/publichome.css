@@ -46,6 +46,10 @@ body{
 .footer{
     background-color:black;
     color:white;
+    padding-top:50px;
+    padding-left:50px;
+    padding-right:60px;
+    font-size:13px;
 }
 
 hr{
@@ -56,8 +60,5 @@ hr{
     margin-left:700px;
 }
 
-h6{
-    font-size:10px;
-}
 
 

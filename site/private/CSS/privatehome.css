@@ -9,6 +9,7 @@ body{
     background-repeat:no-repeat;
     background-size:cover;
 }
+
 .mcontainer{
     padding-left: 50px;
     width:100%;
@@ -18,55 +19,83 @@ body{
     background-repeat:no-repeat;
 }
 .doc{
-    position: absolute;
-    right:-320px;
+    position: relative;
+    /*right:-320px;*/
 }
 .sidebar{
-    height:100vh;
+	display: none;
+	position: absolute;
+	right: 0px;
+	z-index:2;
+    height:100%;
     width:320px;
-    float:right;
     background-color: black;
 }
-.hidemenu{
-    float:right;
-    margin-top:-20px;
+.sidebarcontent{
+    position:fixed;
 }
-.sidehide{
+#sidehide{
     float:left;
     color:white;
+    font-size:25px;
+    margin-left:10px;
 }
-.show{
+.Hi{
+    margin-top:100px;
+    margin-left:80px;
+    font-family:Raleway;
+    font-size:30px;
+}
+.menu{
+    margin-left:110px;
+    margin-top:40px;
+    font-size:20px;
+}
+.logout{
+    margin-left:110px;
+    margin-top:150px;
+    font-size:20px;
+}
+.sidebar-unexpanded 
+{
+    position: absolute;
+    top: 10px;
+    right: 0px;
+}
+.active 
+{
+    display: inline-block;
+}
+/* .show{
     right:0;
     transition:0.5s;
-}
-.footer{
-    background-color:black;
-    color:white;
-}
-hr{
-    border-color: antiquewhite;
-}
-.social{
-    margin-left:700px;
-}
+} */
+
 .headcontent{
-    margin-left:300px;
+    margin-left:530px;
+    margin-top:20px;
+    width:350px;
+    border:2px solid crimson;
+    font-family: Yatra One;
+    letter-spacing: 2px;
+    font-size: 40px;
 }
 .btn1{
     margin-left:150px;
 }
+
 .hide2b{
     display:none;
     position: relative;
     margin-top:70px;
-    left:370px;
+    left:375px;
 }
 
 .hide2l{
     display:none;
     position: relative;
     margin-top:70px;
-    left:-35px;
+    left:-10px;
 }
 .hide2d{
     display: none;
@@ -74,15 +103,48 @@ hr{
     margin-top:70px;
     left:-370px;
 }
-.show2{
-    display:block;
+.btn-lg{
+    padding:40px;
 }
+
 .foodcontainer{
     display:flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     height:350px;
     padding-top:80px;
 }
-
-
-
+.foodchose{
+    font-size:20px;
+    display: inline-block;
+    color:blue;
+}
+.foodchose:hover{
+    color:green;
+    cursor:pointer;
+}
+.vl{
+    display:inline;
+}
+.search{
+    margin-left:630px;
+    margin-bottom:50px;
+    padding:20px;
+}
+.active2{
+    color:green;
+}
+.footer{
+    background-color:black;
+    color:white;
+    padding-top:50px;
+    padding-left:50px;
+    padding-right:60px;
+    font-size:13px;
+}
+hr{
+    border-color: antiquewhite;
+}
+.social{
+    margin-left:700px;
+}

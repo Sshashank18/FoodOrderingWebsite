@@ -12,116 +12,123 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
+    <script src="script.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./CSS/privatehome.css">
 </head>
 <body>
     
-    <div class="doc">
-        <!-- Side Bar -->
-        <div class="sideh">
-            <div class="sidebar">
-                <div class="sidehide hide">
-                    <i class="fa fa-times" aria-hidden="true"></i>
+    <!-- <div class="doc"> -->
+        <div class="doc">
+            <div class="sidebar-unexpanded">
+                <img src="CSS/images/menu-bar.png">
+            </div>
+            <!-- Side Bar -->
+            <div class="sidebar bg-dark text-light"> 
+                <div class="sidebarcontent">
+                    <div id="sidehide">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </div>
+                    <br><br>
+                    <img src="CSS/images/background.jpg" >
+                    <h3 class="Hi">Hii Shashank</h3>
+                    <div class="menu">Your Orders</div>
+                    <div class="menu">About Us</div>
+                    <button class="btn btn-danger logout">Log Out</button>
                 </div>
-                <h3>Hii Shashank</h3>
-                <div>Your Orders</div>
+                
+            </div>
+            
+            <!-- Home Banner -->
+            <div class="mcontainer">
+                <div>
+                    <p>Keep calm and kill your Hunger!!</p>
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <h3 class="headcontent">What time is it?</h3><br><br>
+            <div class="foodcontainer">
+                <div id="breakfast">
+                    <button class="btn btn-outline-dark btn-lg" id="btnfoodb">Breakfast</button>
+                    <div class="hide2b">
+                        <div class="foodchose veg">Veg</div>
+                        <div class="vl"> | </div>
+                        <div class="foodchose egg">Egg</div>
+                        <div class="vl"> | </div>
+                        <div class="foodchose nonveg">Non-Veg</div>
+                    </div>
+                </div>
+                <div id="lunch">
+                    <button class="btn btn-outline-dark btn-lg" id="btnfoodl">Lunch</button>
+                    <div class="hide2l">
+                        <div class="foodchose veg">Veg</div>
+                        <div class="vl"> | </div>
+                        <div class="foodchose egg">Egg</div>
+                        <div class="vl"> | </div>
+                        <div class="foodchose nonveg">Non-Veg</div>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-outline-dark btn-lg" id="btnfoodd">Dinner</button>
+                    <div class="hide2d">
+                        <div class="foodchose veg">Veg</div>
+                        <div class="vl"> | </div>
+                        <div class="foodchose egg">Egg</div>
+                        <div class="vl"> | </div>
+                        <div class="foodchose nonveg">Non-Veg</div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-success search">Search</button>
+            
+            <!-- Footer -->
+            <div class="container-fluid footer">
+                <div class="row">
+                    <div class="col-4">
+                        <h5>About HungerBites<br></h5>
+                        <hr>
+                        About Us<br>
+                        Blog<br>
+                        Contact<br>
+                    </div>
+                    <div class="col-4">
+                        <h5>For Restaraunts<br></h5>
+                        <hr>
+                        Add a Restaraunt<br>
+                        Business Owner Guidelines<br>
+                        Business Blog<br>
+                        
+                    </div>
+                    <div class="col-4">
+                        <h5>For Foodies<br></h5>
+                        <hr>
+                        Code of conduct<br>
+                        Coupons<br>
+                    </div>
+                </div>
+                <br><br>
+                <hr>
+                <div class="row">
+                    <div>Terms of Service &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privacy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Security</div>
+                    <div class="social">
+                        <a href><img src="./CSS/images/fb.png" width="50px" ></a>
+                        <a href><img src="./CSS/images/insta.png" width="50px" ></a>
+                    </div>
+                    <br>
+                    <div><hr>
+                        <h6>By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. © 2008-2019 - HungerBites™ Media Pvt Ltd. All rights reserved.</h6></div>
+                    </div>
+                </div>        
             </div>
         </div>
         
-        <!-- Home Banner -->
-        <div class="mcontainer">
-            <div>
-                <p>Keep calm and kill your Hunger!!</p>
-            </div>
-            <div>
-                <span class="hide hidemenu"><img src="CSS/images/menu-bar.png" width="60px"></span>
-            </div>
-        </div>
-        
-        <!-- Content -->
-        <h3 class="headcontent">What time is it?</h3><br><br>
-        <div class="foodcontainer">
-            <div id="breakfast">
-                <button class="btn btn-outline-success btn-lg" id="btnfoodb">Breakfast</button>
-                <div class="hide2b">
-                    <a href="#">Veg | </a>
-                    <a href="#">Egg | </a>
-                    <a href="#">Non-Veg</a>
-                </div>
-            </div>
-            <div id="lunch">
-                <button class="btn btn-outline-success btn-lg" id="btnfoodl">Lunch</button>
-                <div class="hide2l">
-                    <a href="#">Veg | </a>
-                    <a href="#">Egg | </a>
-                    <a href="#">Non-Veg</a>
-                </div>
-            </div>
-            <div>
-                <button class="btn btn-outline-success btn-lg" id="btnfoodd">Dinner</button>
-                <div class="hide2d">
-                    <a href="#">Veg | </a>
-                    <a href="#">Egg | </a>
-                    <a href="#">Non-Veg</a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Footer -->
-        <div class="container-fluid footer">
-            <div class="row">
-                <div class="col-4">
-                    <h5>About HungerBites<br></h5>
-                    <hr>
-                    About Us<br>
-                    Blog<br>
-                    Contact<br>
-                </div>
-                <div class="col-4">
-                    <h5>For Restaraunts<br></h5>
-                    <hr>
-                    Add a Restaraunt<br>
-                    Business Owner Guidelines<br>
-                    Business Blog<br>
-                    
-                </div>
-                <div class="col-4">
-                    <h5>For Foodies<br></h5>
-                    <hr>
-                    Code of conduct<br>
-                    Coupons<br>
-                </div>
-            </div>
-            <br><br>
-            <hr>
-            <div class="row">
-                <div>Terms of Service &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privacy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Security</div>
-                <div class="social">
-                    <a href><img src="./CSS/images/fb.png" width="50px" ></a>
-                    <a href><img src="./CSS/images/insta.png" width="50px" ></a>
-                </div>
-                <br>
-                <div><hr>
-                    <h6>By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy Policy and Content Policies. All trademarks are properties of their respective owners. © 2008-2019 - HungerBites™ Media Pvt Ltd. All rights reserved.</h6></div>
-                </div>
-            </div>        
-        </div>
-    </div>
-    <script type="text/javascript">
-        $('.hide').click(()=>{
-            $('.doc').toggleClass("show");
-        })
-        $('#btnfoodb').click(()=>{
-            $('.hide2b').toggleClass("show2");
-        })
-        $('#btnfoodl').click(()=>{
-            $('.hide2l').toggleClass("show2");
-        })
-        $('#btnfoodd').click(()=>{
-            $('.hide2d').toggleClass("show2");
-        })
-    </script>
-</body>
-</html>
+        <script type="text/javascript">
+            // $('.hide').click(()=>{
+                //     $('.doc').toggleClass("show");
+                // })
+                
+            </script>
+        </body>
+        </html>

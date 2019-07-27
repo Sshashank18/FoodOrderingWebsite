@@ -3,7 +3,7 @@ const Sequelize=require('sequelize')
 const foodorder=new Sequelize('foodorder','root','root',{    //creating database with name foodorder
     host:'localhost',
     dialect:'sqlite',
-    storage:'foodorder.db',
+    storage:'users.db',
     pool:{
         min:0,
         max:6
