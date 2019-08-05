@@ -1,6 +1,6 @@
 const {connectdb}=require('./restarauntdb')
 
-connectdb('restaraunts').then(db =>{
+connectdb("RestarauntsList").then(db =>{
     const restaraunts=db.collection('restaraunts')
     restaraunts.insertMany([
         {

@@ -2,6 +2,7 @@ const express=require('express')
 const {users}=require('./database')
 const session=require('express-session')
 const passport=require('./passport')
+const {getAllRestaraunts}=require('./database/restarauntdb')
 
 const app=express()
 
@@ -63,6 +64,13 @@ function checkLoggedin(req,res,next){
 app.get('/home',checkLoggedin,(req,res)=>{
     res.send('Welcome')
 })
+
+app.get('/restaraunt',(req,res)=>{
+    getAllRestaraunts().then(restaraunt => {
+        res.render('restaraunt', {restaraunt})
+    })
+})
+
 
 app.listen(4500,()=>{
     console.log('Server started at http://localhost:4500')
