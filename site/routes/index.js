@@ -2,17 +2,91 @@ const router=require('express').Router();
 
 const {getAllRestaraunts}=require('./../database/restarauntdb')
 
-router.get('/',(req,res)=>{
+router.get('/type/:foodtype',(req,res)=>{
+    var type=req.params.foodtype;
+    var time=type.split(" ")[0];
+    var food=type.split(" ")[1];
     getAllRestaraunts()
     .then(restaraunt => {
-        res.render('restaraunt', {restaraunt})
+        let requiredRes=restaraunt.filter((restaraunt)=>{
+            if(time=="Breakfast"){
+                if(restaraunt.FoodTimeBreakfast==true){
+                    if(food=="Veg"){
+                        if(restaraunt.FoodVeg==true)
+                            return restaraunt;
+                    }
+                    else if (food=="Non-Veg"){
+                        if(restaraunt.FoodNonVeg==true)
+                            return restaraunt;
+                    }
+                    else if(food=="Egg"){
+                        if(restaraunt.FoodEgg==true)
+                            return restaraunt;
+                    }
+                }
+            }
+            else if(time=="Lunch"){
+                if(restaraunt.FoodTimeLunch==true){
+                    if(food=="Veg"){
+                        if(restaraunt.FoodVeg==true)
+                            return restaraunt;
+                    }
+                    else if (food=="Non-Veg"){
+                        if(restaraunt.FoodNonVeg==true)
+                            return restaraunt;
+                    }
+                    else if(food=="Egg"){
+                        if(restaraunt.FoodEgg==true)
+                            return restaraunt;
+                    }
+                }
+            }
+            else if(time=="Dinner"){
+                if(restaraunt.FoodTimeDinner==true){
+                    if(food=="Veg"){
+                        if(restaraunt.FoodVeg==true)
+                            return restaraunt;
+                    }
+                    else if (food=="Non-Veg"){
+                        if(restaraunt.FoodNonVeg==true)
+                            return restaraunt;
+                    }
+                    else if(food=="Egg"){
+                        if(restaraunt.FoodEgg==true)
+                            return restaraunt;
+                    }
+                }
+            }
+        })
+        res.send(requiredRes);
+        // res.render('restaraunt', {requiredRes});
     })
 })
 
-router.get('/:id',async function(req,res){
-    var id = req.params.id;
-    let resta= await restaraunt.findAll({id:id}).exec();
-    res.render('orderingrestaraunt',{resta:resta});
+router.get('/type/:foodtype/filtered/:value',async (req,res)=>{
+    var Name=req.params.value;
+    getAllRestaraunts()
+    .then(async (restaraunts) => {
+        let filteredRes = restaraunts.filter((restaraunt) => {
+            if(restaraunt.FoodType == Name)
+                return restaraunt;
+        })
+        res.send(filteredRes);
+    })
+    
+})
+
+router.get('/type/:foodtype/order/:name',async (req,res)=>{
+    var Name=req.params.name;
+    getAllRestaraunts()
+    .then(async (restaraunts)=>{
+        let selectedRes=restaraunts.filter((restaraunt)=>{
+            if(restaraunt.Name == Name)
+                return restaraunt;
+        })
+        res.render('orderingrestaraunt',{selectedRes});
+        // res.send(selectedRes);
+    })
 })
 
 module.exports=router;

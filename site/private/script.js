@@ -27,70 +27,45 @@ $(()=>{
         }
     })
     
+    
+    var tof="";
+    
     // FOOD BUTTON
     $('#btnfoodb').click(()=>{
+        tof="";
+        tof+="Breakfast ";
         $('.hide2b').show();
         $('.hide2l').hide()
         $('.hide2d').hide()
     })
     $('#btnfoodl').click(()=>{
+        tof="";
+        tof+="Lunch ";
         $('.hide2l').show();
         $('.hide2b').hide()
         $('.hide2d').hide()
     })
     $('#btnfoodd').click(()=>{
+        tof="";
+        tof+="Dinner ";
         $('.hide2d').show();
         $('.hide2l').hide()
         $('.hide2b').hide()
     })
     
-    // CHOOSING FOOD TYPE
-    let foodchose=$('.foodchose');
-    let veg=$('.veg');
-    let egg=$('.egg');
-    let nonveg=$('nonveg');
-    setInterval(()=>{
-        for(let i=0;i<foodchose.length;i++){
-        foodchose.click(()=>{
-            if(foodchose[i].innerText=="Veg"){
-                let classList = foodchose[i].getAttribute("class");
-                if(classList.includes("active2"))
-                {
-                    foodchose[i].classList.remove("active2");
-                    veg.css("color","blue");
-                }
-                else{
-                    foodchose[i].classList.add("active2");
-                    veg.css("color","green");
-                }
-            }
-            
-            if(foodchose[i].innerText=="Egg"){
-                let classList = foodchose[i].getAttribute("class");
-                if(classList.includes("active2"))
-                {
-                    foodchose[i].classList.remove("active2");
-                    egg.css("color","blue");
-                }
-                else{
-                    foodchose[i].classList.add("active2");
-                    egg.css("color","green");
-                }
-            }
-            else{
-                let classList = foodchose[i].getAttribute("class");
-                if(classList.includes("active2"))
-                {
-                    foodchose[i].classList.remove("active2");
-                    nonveg.css("color","blue");
-                }
-                else{
-                    foodchose[i].classList.add("active2");
-                    nonveg.css("color","green");
-                }
-                
-            }
+    
+    let type = $(".type");
+    type.each((index) => {
+        type[index].addEventListener("click", (event) => {
+            let type=event.target.value;
+            tof+=type;
+            let foodtype = tof;
+            console.log(tof);
+            $.get('/restaraunt/type/'+foodtype,(ans)=>{
+                console.log(ans);
+            });
         })
-    }
-},5)
+        
+    })
+    
 })

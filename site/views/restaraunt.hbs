@@ -36,14 +36,14 @@
     <div class="container">
         <div class="card-deck mitem">
             {{#each restaraunt as |resta|}}
-            <div class="mlist">
-                <img class="card-img-top" src="CSS/images/logobg4.jpg" alt="Card image cap">
-                <div class="card-body mbody">
-                    <h5 class="card-title title">{{resta.Name}}</h5>
-                    <p class="card-text">{{resta.Rating}} Star</p>
-                    <a href="#" class="btn btn-success order">Order Now</a>
+                <div class="mlist">
+                    <img class="card-img-top" src="CSS/images/logobg4.jpg" alt="Card image cap">
+                    <div class="card-body mbody">
+                        <h5 class="card-title title">{{resta.Name}}</h5>
+                        <p class="card-text">{{resta.Rating}} Star</p>
+                        <button class="btn btn-success order" value="{{resta.Name}}">Order Now</a>
+                    </div>
                 </div>
-            </div>
             {{/each}}
         </div>
     </div>

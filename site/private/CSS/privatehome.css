@@ -114,26 +114,7 @@ body{
     height:350px;
     padding-top:80px;
 }
-.foodchose{
-    font-size:20px;
-    display: inline-block;
-    color:blue;
-}
-.foodchose:hover{
-    color:green;
-    cursor:pointer;
-}
-.vl{
-    display:inline;
-}
-.search{
-    margin-left:630px;
-    margin-bottom:50px;
-    padding:20px;
-}
-.active2{
-    color:green;
-}
+
 .footer{
     background-color:black;
     color:white;
