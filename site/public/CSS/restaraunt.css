@@ -1,4 +1,18 @@
-.mcontainer{
+.searchnav{
+    margin-left:600px;
+}
+.resta-selection{
+    margin-left:320px;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.mitem{
     display:flex;
     flex-wrap:wrap;
+}
+.mlist{
+    width:250px;
+    margin:25px;
+    margin-left:100px;
+    /* border:2px solid lightgray; */
 }

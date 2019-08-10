@@ -1,8 +1,8 @@
 const {connectdb}=require('./restarauntdb')
 
 connectdb("RestarauntsList").then(db =>{
-    const restaraunts=db.collection('restaraunts')
-    restaraunts.insertMany([
+    const restaraunts=db.collection('restaraunts');
+    return restaraunts.insertMany([
         {
             Name:'Yellow Bowl',
             FoodTimeBreakfast:true,
@@ -11,6 +11,7 @@ connectdb("RestarauntsList").then(db =>{
             FoodVeg:true,
             FoodEgg:false,
             FoodNonVeg:false,
+            Rating:4,
             FoodType:'North Indian',
             Menu:{
                 Breakfast:{
@@ -68,6 +69,7 @@ connectdb("RestarauntsList").then(db =>{
             FoodVeg:true,
             FoodEgg:false,
             FoodNonVeg:false,
+            Rating:5,
             FoodType:'North Indian',
             Menu:{
                 Breakfast:{
@@ -95,6 +97,7 @@ connectdb("RestarauntsList").then(db =>{
             FoodVeg:true,
             FoodEgg:false,
             FoodNonVeg:false,
+            Rating:4.5,
             FoodType:'South Indian',
             Menu:{
                 Breakfast:{
@@ -125,6 +128,7 @@ connectdb("RestarauntsList").then(db =>{
             FoodVeg:true,
             FoodEgg:false,
             FoodNonVeg:false,
+            Rating:4,
             FoodType:'Chinese',
             Menu:{
                 MainCourse:{
@@ -157,6 +161,7 @@ connectdb("RestarauntsList").then(db =>{
             FoodVeg:true,
             FoodEgg:true,
             FoodNonVeg:true,
+            Rating:5,
             FoodType:'Fast Food',
             Menu:{
                 MainCourse:{
@@ -195,6 +200,7 @@ connectdb("RestarauntsList").then(db =>{
             FoodVeg:true,
             FoodEgg:false,
             FoodNonVeg:false,
+            Rating:3,
             FoodType:'Beverages',
             Beverages:{
                 Pepsi:30,
@@ -227,6 +233,7 @@ connectdb("RestarauntsList").then(db =>{
             FoodVeg:true,
             FoodEgg:false,
             FoodNonVeg:false,
+            Rating:4.1,
             FoodType:'Desserts',
             Menu:{
                 Desserts:{

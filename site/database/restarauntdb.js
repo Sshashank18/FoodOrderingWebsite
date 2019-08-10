@@ -4,11 +4,11 @@ const url='mongodb://localhost:27017';
 
 
 const connectdb=(dbName)=>{
-    return MongoClient.connect(url).then(client=>client.db(dbName))
+    return MongoClient.connect(url,{ useNewUrlParser: true }).then(client=>client.db(dbName))
 }
 
 const getAllRestaraunts= () =>{
-    connectdb("RestarauntsList")
+    return connectdb("RestarauntsList")
     .then(db=>db.collection('restaraunts').find())
     .then(b=>b.toArray());
 }
