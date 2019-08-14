@@ -61,11 +61,10 @@ $(()=>{
             tof+=type;
             let foodtype = tof;
             console.log(tof);
-            $.get('/restaraunt/type/'+foodtype,(ans)=>{
-                console.log(ans);
-            });
+            window.location = "/restaraunt/type/" + foodtype;
         })
         
     })
     
+
 })

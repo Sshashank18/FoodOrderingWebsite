@@ -1,8 +1,10 @@
-const router=require('express').Router();
+const express = require("express");
+const router=express.Router();
 
 const {getAllRestaraunts}=require('./../database/restarauntdb')
 
 router.get('/type/:foodtype',(req,res)=>{
+    
     var type=req.params.foodtype;
     var time=type.split(" ")[0];
     var food=type.split(" ")[1];
@@ -57,9 +59,9 @@ router.get('/type/:foodtype',(req,res)=>{
                     }
                 }
             }
+            
         })
-        res.send(requiredRes);
-        // res.render('restaraunt', {requiredRes});
+        res.render('restaraunt', {requiredRes});
     })
 })
 
@@ -85,7 +87,6 @@ router.get('/type/:foodtype/order/:name',async (req,res)=>{
                 return restaraunt;
         })
         res.render('orderingrestaraunt',{selectedRes});
-        // res.send(selectedRes);
     })
 })
 

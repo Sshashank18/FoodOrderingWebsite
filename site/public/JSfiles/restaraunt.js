@@ -5,24 +5,40 @@ $(()=>{
     let restas = $(".resta");
     restas.each((index) => {
         restas[index].addEventListener("click", (event) => {
-            let value = event.target.value;
-            $.get('/restaraunt/filtered/' + value, (filteredRestaraunts) => {
+            const value = event.target.value;
+            
+            let urlArray = window.location.href.split("/");
+            let foodType = urlArray[urlArray.length - 1];
+            
+            $.get("/restaraunt/type/" + foodType + "/filtered/" + value, (filteredRestaraunts) => {
                 let list = $('.mitem');
                 list.empty();
                 
                 filteredRestaraunts.map((restaraunt) => {
                     list.append(`
-                    <div class="mlist">
-                    <img class="card-img-top" src="CSS/images/logobg4.jpg" alt="Card image cap">
-                    <div class="card-body mbody">
-                    <h5 class="card-title title">${restaraunt.Name}</h5>
-                    <p class="card-text">${restaraunt.Rating} Star</p>
-                    <a href="#" class="btn btn-success order">Order Now</a>
-                    </div>
-                    </div>
+                        <div class="mlist" value="${restaraunt.FoodType}">
+                            <img class="card-img-top" src="/CSS/images/logobg4.jpg" alt="Card image cap">
+                            <div class="card-body mbody">
+                                <h5 class="card-title title">${restaraunt.Name}</h5>
+                                <p class="card-text">${restaraunt.Rating} Star</p>
+                                <button class="btn btn-success order" value="${restaraunt.Name}">Order Now</button>
+                                
+                            </div>
+                        </div>
                     `)
                 })
+                let orderButtons = $('.order');
+                orderButtons.each((index)=>{
+                    orderButtons[index].addEventListener("click", (event) => {
+                        const restaclicked = event.target.value;
+                        let urlArray = window.location.href.split("/");
+                        let ResType = urlArray[urlArray.length - 1];
+                        
+                        window.location = '/restaraunt/type/'+ResType+"/order/"+restaclicked;
+                    })
+                })
             })
+
         })
     })
     
@@ -31,13 +47,14 @@ $(()=>{
     //                                          ORDERING FROM RESTARAUNT
 
     
-    
-    $('.order').each((index)=>{
-        $('.order')[index].addEventListener("click", (event) => {
-            let  restaclicked=event.target.value;
-            $.get('/restaraunt/order/'+ restaclicked,()=>{
-                console.log('success');
-            });
+    let orderButtons = $('.order');
+    orderButtons.each((index)=>{
+        orderButtons[index].addEventListener("click", (event) => {
+            const restaclicked = event.target.value;
+            let urlArray = window.location.href.split("/");
+            let ResType = urlArray[urlArray.length - 1];
+            
+            window.location = '/restaraunt/type/'+ResType+"/order/"+restaclicked;
         })
     })
     

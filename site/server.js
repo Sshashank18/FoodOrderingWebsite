@@ -18,8 +18,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(express.static('public'))
-app.use("/home", express.static('./private'))
+app.use(express.static('./public'))
+app.use("/home",checkLoggedin,express.static('./private'))
+
 
 app.set('view engine','hbs')
 
@@ -62,9 +63,6 @@ function checkLoggedin(req,res,next){
     res.redirect('/login')
 }
 
-// app.get('/home',checkLoggedin,(req,res)=>{
-//     res.
-// })
 
 app.use('/restaraunt',routingrestaraunt);
 

@@ -1,0 +1,19 @@
+#strip{
+    background-color: green;
+    width:100%;
+    height:50px;
+}
+
+
+#order{
+    position:fixed;
+    height:68%;
+    width:350px;
+    overflow:scroll;
+}
+
+#pricing{
+    position:fixed;
+    top:500px;
+    
+}
