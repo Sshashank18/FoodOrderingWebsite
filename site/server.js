@@ -1,5 +1,6 @@
 const express=require('express')
 const {users}=require('./database')
+const {cartItems}=require('./database')
 const session=require('express-session')
 const passport=require('./passport')
 const routingrestaraunt=require('./routes');
@@ -54,6 +55,25 @@ app.post('/signup',(req,res)=>{
         res.redirect('/signup')
     })
 })
+
+app.post('/payment',(req,res)=>{
+    
+    console.log(req.body);
+
+    // Promise.all(FoorArr.map(item => {
+    //     cartItems.create({
+    //         RestaName: ResName,
+    //         foodName: item
+    //         quanity
+    //     })
+    // }))
+
+    // cartItems.create({
+    //     RestaName:ResName,
+    //     foodName:FoodArr,
+    // })
+})
+
 
 function checkLoggedin(req,res,next){
     if(req.user)

@@ -3,12 +3,12 @@ const Sequelize=require('sequelize')
 const foodorder=new Sequelize('foodorder','root','root',{    //creating database with name foodorder
     host:'localhost',
     dialect:'sqlite',
-    storage:'users.db',
+    storage:'Foodordering.db',
     pool:{
         min:0,
         max:6
     },
-    logging: true
+    logging: false
 })
 
 const users=foodorder.define('Users',{    //Creating a Users table in foodorder database
@@ -40,12 +40,39 @@ const users=foodorder.define('Users',{    //Creating a Users table in foodorder 
         type:Sequelize.STRING,
         allowNull:false,
     }
+
 })
+
+const cartItems=foodorder.define('CartItems',{
+    id:{
+        type:Sequelize.INTEGER,
+        autoIncrement:true,
+        allowNull:false,
+        primaryKey:true
+    },
+    RestaName:{
+        type:Sequelize.STRING,
+        allowNull:false,
+    },
+    foodName:{
+        type:Sequelize.STRING,
+        allowNull:false,
+    },
+    quantity:{
+        type:Sequelize.INTEGER,
+        allowNull:false,
+    }
+
+})
+
+
+cartItems.belongsTo(users);
+users.hasMany(cartItems);
 
 foodorder.sync()
     .then(()=>{console.log("Database Synced successfullly")})
-    .catch((err)=>{console.error("Problem in syncing database")})
+    .catch((err)=>console.error(err))
 
 module.exports={
-    users
+    users,cartItems
 }

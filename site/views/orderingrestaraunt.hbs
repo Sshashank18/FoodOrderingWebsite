@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Restaraunt Order</title>
 
     <!-- LINKING BOOTSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -27,7 +27,7 @@
                 {{#each selectedRes as |res|}}
                     <div>
                         <img src>
-                        <h2>{{res.Name}}</h2><br>
+                        <h2 id="ResName">{{res.Name}}</h2><br>
                         <h6>{{res.FoodType}}</h6><br>
                         {{res.Rating}}
                     </div>
@@ -151,16 +151,59 @@
                     </div>
                 {{/each}}
             </div>
-            <div class="item col-4">
+            
+            <div class="item col-4" id="cartside">
                 <div id="order">
-                    <h4>Your Orders</h4>
+                    <h4 id="orderhead">Your Orders</h4>
+                    <hr>
+                    
+                </div>
+                <span id="pricing">
+                    Subtotal:
+                    <span id="subtotal">
+                    
+                    </span>
+                    <br><br>
+                    <span id="total">
+                        Total:
+                        <span id="totalam"></span><br>(plus tax)
+                    </span><br>
+                    <span id="discount">
+                        <!-- Button trigger modal -->
+                        <button type="button"  id="Coupon" class="btn btn-danger" data-toggle="modal" data-target="#Couponscode">
+                        Coupons
+                        </button>
 
-                </div>
-                <div id="pricing">
-                    <div id="subtotal">
-                        Subtotal:
-                    </div>
-                </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="Couponscode" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Available Coupons</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <ul id="couponslist">
+                                        <li>NEW50</li>
+                                        <li>FIRST</li>
+                                    </ul>
+                                    <br><br>
+                                    <input placeholder="Enter PROMO CODE" id="code">
+                                    <button class="btn btn-secondary" id="apply">APPLY</button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <br><br>
+                        <span id="Discountedt">Discounted Total:</span>
+                    </span>
+                    <button class="btn btn-success" id="confirm">Confirm</button>
+                </span>
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@ $(()=>{
             $.get("/restaraunt/type/" + foodType + "/filtered/" + value, (filteredRestaraunts) => {
                 let list = $('.mitem');
                 list.empty();
-                
+        
                 filteredRestaraunts.map((restaraunt) => {
                     list.append(`
                         <div class="mlist" value="${restaraunt.FoodType}">
