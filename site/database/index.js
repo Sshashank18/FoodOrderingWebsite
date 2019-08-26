@@ -36,8 +36,8 @@ const users=foodorder.define('Users',{    //Creating a Users table in foodorder 
         type:Sequelize.STRING,
         allowNull:false
     },
-    state:{
-        type:Sequelize.STRING,
+    phoneno:{
+        type:Sequelize.NUMBER,
         allowNull:false,
     }
 
@@ -61,6 +61,10 @@ const cartItems=foodorder.define('CartItems',{
     quantity:{
         type:Sequelize.INTEGER,
         allowNull:false,
+    },
+    price: {
+        type: Sequelize.INTEGER,
+        allowNull: false
     }
 
 })

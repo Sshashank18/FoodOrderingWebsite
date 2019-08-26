@@ -3,6 +3,23 @@
     width:100%;
     height:50px;
 }
+#menuhead{
+    font-family:Raleway;
+}
+#Discountedt{
+    margin-left:110px;
+    font-size:20px;
+}
+#ntotal{
+    font-size:17px;
+    font-weight: 2px;
+    font-family:sans-serif;
+    color:red;
+}
+#applied{
+    color:red;
+    font-weight: 35px;
+}
 #cartside{
     margin-top:10px;
 }
@@ -17,7 +34,7 @@
     border:2px solid lightgray;
     position:fixed;
     /* background-color: lightgray; */
-    height:56%;
+    height:50%;
     width:350px;
     overflow:scroll;
 }
@@ -26,7 +43,7 @@
 }
 #pricing{
     position:fixed;
-    top:420px;
+    top:370px;
     height: 100%;
     width:350px;
     background-color: lightgray;

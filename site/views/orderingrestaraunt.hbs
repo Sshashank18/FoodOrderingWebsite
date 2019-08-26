@@ -27,12 +27,13 @@
                 {{#each selectedRes as |res|}}
                     <div>
                         <img src>
-                        <h2 id="ResName">{{res.Name}}</h2><br>
-                        <h6>{{res.FoodType}}</h6><br>
+                        <h2 id="ResName">{{res.Name}}</h2>
+                        <h6>{{res.FoodType}}</h6>
                         {{res.Rating}}
                     </div>
+                    <br><br>
                     <div class="menu">
-                        <h3>Menu</h3>
+                        <h3 id="menuhead"><u>Menu</u></h3><br>
                         {{#if res.Menu.Breakfast}}
                             <h2>BREAKFAST</h2>
                             <table class="table">
@@ -167,44 +168,45 @@
                     <span id="total">
                         Total:
                         <span id="totalam"></span><br>(plus tax)
-                    </span><br>
+                    </span>
+                    <br>
                     <span id="discount">
                         <!-- Button trigger modal -->
                         <button type="button"  id="Coupon" class="btn btn-danger" data-toggle="modal" data-target="#Couponscode">
                         Coupons
                         </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="Couponscode" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">Available Coupons</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <ul id="couponslist">
-                                        <li>NEW50</li>
-                                        <li>FIRST</li>
-                                    </ul>
-                                    <br><br>
-                                    <input placeholder="Enter PROMO CODE" id="code">
-                                    <button class="btn btn-secondary" id="apply">APPLY</button>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
                         <br><br>
-                        <span id="Discountedt">Discounted Total:</span>
-                    </span>
+                        Discounted Total:
+                        <span id="Discountedt"></span>
+                        <div id="ntotal"></div>
+                        <div id="applied"></div>
+                    </span><br>
                     <button class="btn btn-success" id="confirm">Confirm</button>
                 </span>
             </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="Couponscode" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Available Coupons</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="myModal">
+                    <ul id="couponslist">
+                        <li>NEW50</li>
+                        <li>FIRST</li>
+                    </ul>
+                    <br><br>
+                    <input placeholder="Enter PROMO CODE" id="code">
+                    <button class="btn btn-secondary close" id="apply" data-dismiss="modal" aria-label="Close">APPLY</button>
+                </div>
+                
+            </div>
+        </div>
         </div>
     </div>
 </body>

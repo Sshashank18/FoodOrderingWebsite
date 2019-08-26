@@ -1,4 +1,8 @@
 $(()=>{
+
+    $.get("/getUser", username => {
+        $($(".Hi")[0]).text(`Hi ${username}`)
+    })
     
     // SIDE BAR
     let sidebarExpandButton = $(".sidebar-unexpanded");

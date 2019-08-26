@@ -7,6 +7,8 @@ const routingrestaraunt=require('./routes');
 
 const app=express()
 
+var user;
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 
@@ -19,8 +21,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(express.static('./public'))
-app.use("/home",checkLoggedin,express.static('./private'))
+app.use(express.static('./public'));
+
+app.use("/home",checkLoggedin, express.static('./private'));
 
 
 app.set('view engine','hbs')
@@ -47,7 +50,7 @@ app.post('/signup',(req,res)=>{
         email:req.body.email,
         password:req.body.password,
         address:req.body.address,
-        state:req.body.state
+        phoneno:req.body.phoneno
     }).then((user)=>{
         res.redirect('/login')
     }).catch(err=>{
@@ -56,28 +59,65 @@ app.post('/signup',(req,res)=>{
     })
 })
 
+
+
+// app.patch("/user/update", (req, res) => {
+//     users.update({
+//         name: req.body.name,
+//         //address
+//         //phpne
+//     },
+//     {
+//         where: {
+//             id: req.user.id
+//         }
+//     })
+//     res.sendStatus(200);
+// })
+
+app.get('/payment',(req,res)=>{
+    cartItems.findAll({
+        where: {
+            UserId: req.user.id 
+        },
+        attributes: ["RestaName", "foodName", "quantity", "price"],
+        // include: [users]
+    })
+    .then(cartItems => {
+
+        console.log(cartItems);
+    })
+    // res.render('payment',{user:req.user, cartItems})
+
+});
+
+app.get("/getUser", (req , res) => {
+    res.send(req.user.username);
+})
+
 app.post('/payment',(req,res)=>{
     
-    console.log(req.body);
+    // console.log(req.body);
+    
+    Promise.all(req.body.foodItems.map(item => {
+        return cartItems.create({
+            RestaName: req.body.resname,
+            foodName: item.foodName,
+            quantity: item.quantity,
+            UserId: req.user.id,
+            price: item.pricePerItem
+        })
+    }))
+    .then(() => res.sendStatus(200));
 
-    // Promise.all(FoorArr.map(item => {
-    //     cartItems.create({
-    //         RestaName: ResName,
-    //         foodName: item
-    //         quanity
-    //     })
-    // }))
-
-    // cartItems.create({
-    //     RestaName:ResName,
-    //     foodName:FoodArr,
-    // })
+                            
+    
 })
 
 
 function checkLoggedin(req,res,next){
     if(req.user)
-    {
+    {   
         return next()
     }        
     res.redirect('/login')

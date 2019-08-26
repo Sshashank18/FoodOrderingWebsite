@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha tests",
-    "cover":"nyc --reporter=html mocha tests"
+    "cover": "nyc --reporter=html mocha tests"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "hbs": "^4.0.4",
+    "lottie-web": "^5.5.7",
     "mongodb": "^3.3.0-beta2",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
