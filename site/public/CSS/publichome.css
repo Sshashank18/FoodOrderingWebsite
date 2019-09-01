@@ -6,16 +6,8 @@ body{
     max-width: 100%;
     filter: blur(2.7px)
 }
-/* .homebtn{
-    /* margin-bottom:250px;
-    margin-top:200px; 
-}
-.homebtn1{
-    margin-left:620px;
-} */
 
 .mcontainer{
-    /* margin:0px; */
     padding-left:30px;
     text-align: center;
 }
@@ -27,20 +19,27 @@ body{
 }
 
 .about{
+    position: relative;
     font-size:20px;
+    /* font-family:'Raleway'; */
 }
-
-.about{
-    z-index: 1;
-    display: block;
-    background-image: url('./images/aboutbg.jpg');
-    background-repeat: no-repeat;
-    background-size: 1300px 400px;
-    filter:blur(2px);
+#background{
+    filter:blur(3px);
+    z-index: -1;
+    position: absolute;
 }
-
+#getintro{
+    margin-top:70px;
+    margin-bottom:100px; 
+}
+#delay{
+    font-size:40px;
+    font-family: 'Raleway';
+}
 .order{
     text-align: center;
+    margin-top:150px;
+    margin-bottom:100px;
 }
 
 .footer{

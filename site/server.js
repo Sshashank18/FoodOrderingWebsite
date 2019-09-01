@@ -59,35 +59,33 @@ app.post('/signup',(req,res)=>{
     })
 })
 
-
-
-// app.patch("/user/update", (req, res) => {
-//     users.update({
-//         name: req.body.name,
-//         //address
-//         //phpne
-//     },
-//     {
-//         where: {
-//             id: req.user.id
-//         }
-//     })
-//     res.sendStatus(200);
-// })
+app.patch("/user/update", (req, res) => {
+    users.update({
+        username:req.body.name,
+        address:req.body.address,
+        phoneno:req.body.phone
+    },
+    {
+        where: {
+            id: req.user.id
+        }
+    })
+    res.sendStatus(200);
+})
 
 app.get('/payment',(req,res)=>{
-    cartItems.findAll({
-        where: {
-            UserId: req.user.id 
-        },
-        attributes: ["RestaName", "foodName", "quantity", "price"],
-        // include: [users]
-    })
-    .then(cartItems => {
+    // cartItems.findAll({
+    //     where: {
+    //         UserId: req.user.id 
+    //     },
+    //     attributes: ["RestaName", "foodName", "quantity", "price"],
+    //     // include: [users]
+    // })
+    // .then(cartItems => {
 
-        console.log(cartItems);
-    })
-    // res.render('payment',{user:req.user, cartItems})
+    //     console.log(cartItems);
+    // }),{user:req.user, cartItems}
+    res.render('payment',{user:req.user});
 
 });
 
