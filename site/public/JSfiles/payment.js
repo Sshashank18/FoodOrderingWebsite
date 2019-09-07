@@ -31,6 +31,10 @@
                 address: Address.innerText 
             }
         })
+
+        $('#pay').click(()=>{
+            window.location='/home';
+        })
     })
     
 

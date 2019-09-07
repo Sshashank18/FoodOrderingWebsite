@@ -50,7 +50,12 @@
         </div>
         <div class="order">
             <h2 id="head3">Order</h2>
-            <div id="food"></div>
+            <div id="food">
+                {{cart.RestaName}}
+                <br>
+                {{cart.foodName}}
+                {{cart.quantity}}*{{cart.price}}
+            </div>
             <h5>Total:</h5>
             <div id="total"></div>
             <button id="pay" class="btn btn-success">Pay</button>

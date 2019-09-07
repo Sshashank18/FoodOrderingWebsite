@@ -154,7 +154,6 @@ $(()=>{
 
     let confirm=$('#confirm');
     confirm.click(()=>{
-        console.log(foodItems);
         $.post("/payment", {
             resname: resname,
             foodItems: foodItems,               

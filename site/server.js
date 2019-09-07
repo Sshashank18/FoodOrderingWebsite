@@ -32,6 +32,31 @@ app.get('/login',(req,res)=>{
     res.render('login')
 })
 
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/login');
+});
+
+app.get('/login/facebook', passport.authenticate('facebook'))
+
+app.get('/login/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/home',
+  failureRedirect: '/login'
+}))
+app.get('/login/instagram', passport.authenticate('instagram'))
+
+app.get('/login/instagram/callback', passport.authenticate('instagram', {
+  successRedirect: '/home',
+  failureRedirect: '/login'
+}))
+
+app.get('/login/google', passport.authenticate('google'))
+
+app.get('/login/google/callback', passport.authenticate('google', {
+  successRedirect: '/home',
+  failureRedirect: '/login'
+}))
+
 app.get('/signup',(req,res)=>{
     res.render('signup')
 })
@@ -40,7 +65,6 @@ app.post('/login',
     passport.authenticate('local',{
         successRedirect:'/home',
         failureRedirect:'/login',
-        // failureFlash:true
     })
 )
 
@@ -51,7 +75,7 @@ app.post('/signup',(req,res)=>{
         password:req.body.password,
         address:req.body.address,
         phoneno:req.body.phoneno
-    }).then((user)=>{
+    }).then(()=>{
         res.redirect('/login')
     }).catch(err=>{
         console.error(err)
@@ -73,20 +97,29 @@ app.patch("/user/update", (req, res) => {
     res.sendStatus(200);
 })
 
+app.get('/myorders',(req,res)=>{
+    cartItems.findAll({
+        where: {
+            UserId: req.user.id 
+        },
+        attributes: ["RestaName", "foodName", "quantity", "price"],
+    })
+    .then(cartItems => {
+        res.send(cartItems);
+    })
+})
+
 app.get('/payment',(req,res)=>{
-    // cartItems.findAll({
-    //     where: {
-    //         UserId: req.user.id 
-    //     },
-    //     attributes: ["RestaName", "foodName", "quantity", "price"],
-    //     // include: [users]
-    // })
-    // .then(cartItems => {
-
-    //     console.log(cartItems);
-    // }),{user:req.user, cartItems}
-    res.render('payment',{user:req.user});
-
+    cartItems.findAll({
+        where: {
+            UserId: req.user.id 
+        },
+        attributes: ["RestaName", "foodName", "quantity", "price"],
+    })
+    .then(cartItems => {
+        res.render('payment',{user:req.user,cart:cartItems});    
+    })
+    
 });
 
 app.get("/getUser", (req , res) => {
@@ -94,9 +127,6 @@ app.get("/getUser", (req , res) => {
 })
 
 app.post('/payment',(req,res)=>{
-    
-    // console.log(req.body);
-    
     Promise.all(req.body.foodItems.map(item => {
         return cartItems.create({
             RestaName: req.body.resname,
@@ -106,10 +136,7 @@ app.post('/payment',(req,res)=>{
             price: item.pricePerItem
         })
     }))
-    .then(() => res.sendStatus(200));
-
-                            
-    
+    .then(() => res.redirect('/payment'));
 })
 
 
@@ -122,7 +149,7 @@ function checkLoggedin(req,res,next){
 }
 
 
-app.use('/restaraunt',routingrestaraunt);
+app.use('/restaraunt',checkLoggedin,routingrestaraunt);
 
 app.listen(4500,()=>{
     console.log('Server started at http://localhost:4500')
