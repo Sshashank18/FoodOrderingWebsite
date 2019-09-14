@@ -213,7 +213,7 @@ connectdb("RestarauntsList").then(db =>{
                     {name:"Lemonade",price:20},
                     {name:"Virgin Mojito",price:45},
                     {name:"Coke Mojito",price:50},
-                ],
+                ]
             }
         },
         {

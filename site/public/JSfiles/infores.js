@@ -154,11 +154,13 @@ $(()=>{
 
     let confirm=$('#confirm');
     confirm.click(()=>{
-        $.post("/payment", {
+        var totalpr=$('#Discountedt').text();
+        $.post("/addToCart", {
             resname: resname,
-            foodItems: foodItems,               
+            foodItems: foodItems,              
         }, () => {
-            window.location = "/payment";
+            window.location = `/payment/${totalpr.split('₹')[1]}`;
+            // window.location="/payment";
         })
     })
 

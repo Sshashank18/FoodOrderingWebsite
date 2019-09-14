@@ -19,10 +19,13 @@
 
 </head>
 <body>
+    <div id="strip">
+    <a class="btn btn-danger" id="logout" href="/logout">Logout</a>
+    </div>
+    <br>
     <div class="searchnav">
         <input type="text" placeholder="Search for Dishes..">
         <button class="btn btn-primary">Search</button>
-        <a class="btn btn-danger" href="/logout" id="logout" >Logout</a>
     </div>
      
     <div class="btn-group btn-group-lg resta-selection" role="group" aria-label="Menu">
@@ -41,7 +44,7 @@
                     <img class="card-img-top" src="/CSS/images/logobg4.jpg" alt="Card image cap">
                     <div class="card-body mbody">
                         <h5 class="card-title title">{{resta.Name}}</h5>
-                        <p class="card-text">{{resta.Rating}} Star</p>
+                        <p class="card-text">{{resta.Rating}}⭐ </p>
                         <button class="btn btn-success order" value="{{resta.Name}}">Order Now</button>
                     </div>
                 </div>

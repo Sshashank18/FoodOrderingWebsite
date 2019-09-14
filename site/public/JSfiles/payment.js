@@ -32,9 +32,15 @@
             }
         })
 
-        $('#pay').click(()=>{
+        
+    })
+
+    $('#pay').click(()=>{
+        $.post("/payment")
+        .then(() => {
             window.location='/home';
         })
+        
     })
     
 

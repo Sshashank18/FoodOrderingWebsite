@@ -20,7 +20,7 @@ $(()=>{
                             <img class="card-img-top" src="/CSS/images/logobg4.jpg" alt="Card image cap">
                             <div class="card-body mbody">
                                 <h5 class="card-title title">${restaraunt.Name}</h5>
-                                <p class="card-text">${restaraunt.Rating} Star</p>
+                                <p class="card-text">${restaraunt.Rating} ⭐</p>
                                 <button class="btn btn-success order" value="${restaraunt.Name}">Order Now</button>
                                 
                             </div>

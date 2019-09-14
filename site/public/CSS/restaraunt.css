@@ -12,7 +12,12 @@
 }
 #logout{
     margin-top:7px;
-    margin-left:350px;
+    margin-left:1250px;
+}
+#strip{
+    background-color: mediumseagreen;
+    width:100%;
+    height:50px;
 }
 .mlist{
     width:250px;

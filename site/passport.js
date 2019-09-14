@@ -2,7 +2,7 @@ const passport=require('passport')
 const localstrategy=require('passport-local').Strategy
 const FacebookStrategy=require('passport-facebook').Strategy
 const InstagramStrategy = require('passport-instagram').Strategy
-const GoogleStrategy = require('passport-google').Strategy
+const GoogleStrategy = require('passport-google-oauth2').Strategy
 const users=require('./database').users
 
 passport.use(
@@ -20,68 +20,85 @@ passport.use(
             done(null,user)
         })
         .catch(done)
-}))
+}));
 
-passport.use(
-    new FacebookStrategy(
-        {
-        clientID: '510074252855921',
-        clientSecret: '5c8cc5db4f4b311324c3843373c81ad1',
+
+    passport.use(new FacebookStrategy({
+        clientID: '489754768482846',
+        clientSecret: 'a8ee45c48a6b6cead5739183e6d4a978',
         callbackURL: 'http://localhost:4500/login/facebook/callback',
-        },
-        (accessToken, refreshToken, profile, done) => {
-        users.findCreateFind({
+    }, (accessToken, refreshToken, profile, done) => {
+        users.findOrCreate({
             where: {
-            email: profile.id,
-            },
-            defaults: {
-            email: profile.id,
-            fbAccessToken: accessToken,
-            },
+                email: profile.id,
+                username: profile.displayName,
+                password: profile.id,
+                phoneno: " ",
+                address: " "
+            }
         })
-            .then((user) => {
-            done(null, user)
-            })
-            .catch(done)
-        },
-    ),
-    )
+            .then((user) => done(null, user[0].get()))
+            .catch(err => console.log(err));
+    }))
 
     passport.use(
         new InstagramStrategy({
-        clientID: '20e575bdf29e4d539993c4948bed639a',
-        clientSecret: 'f14da32d03a640f8899fe4dd09e2f810',
-        callbackURL: "http://127.0.0.1:3000/login/instagram/callback"
+        clientID: 'b9b34cf0902d4ed3a4a0c22096509575',
+        clientSecret: '7875b1ec0644439e80ed58c592312777',
+        callbackURL: "http://localhost:4500/auth/instagram/callback"
       },
       function(accessToken, refreshToken, profile, done) {
-        users.findOrCreate({ email: profile.id }, function (err, user) {
-          return done(err, user);
-        });
+        // console.log(profile);
+        users.findOrCreate({
+            where: {
+                email: profile.id,
+                username: profile.displayName,
+                password: profile.id,
+                phoneno: " ",
+                address: " "
+            }
+        })
+            .then((user) => done(null, user[0].get()))
+            .catch(err => console.log(err));
       }
     ));
 
     passport.use(new GoogleStrategy({
-        returnURL: 'http://localhost:4500/login/google/return',
-        realm: 'http://localhost:4500/'
+        callbackURL: 'http://localhost:4500/login/google/return',
+        passReqToCallback: true,
+        clientID: "473417843783-smd372mi962m1biispkg84ocsfm1lsbd.apps.googleusercontent.com",
+        clientSecret: "TShCPKcImKviHHUEaWC8scPA",
+        scope: "https://mail.google.com"
       },
-      function(identifier, done) {
-        Users.findByOpenID({ openId : identifier }, function (err, user) {
-          return done(err, user);
-        });
+      function(request, accessToken, refreshToken, profile, done) {
+        console.log(profile);
+        // users.findOrCreate({
+        //     where: {
+        //         email: profile.id,
+        //         username: profile.displayName,
+        //         password: profile.id,
+        //         phoneno: " ",
+        //         address: " "
+        //     }
+        // })
+        //     .then((user) => done(null, user[0].get()))
+        //     .catch(err => console.log(err));
+        
       }
     ));
 
 
-passport.serializeUser((users,done)=>{
-    done(null,users.id)
+passport.serializeUser((user,done)=>{
+    done(null,user.id)
 })
 
 passport.deserializeUser((userId,done)=>{
     users.findOne({
         where:{
-            id:userId
+            id: userId
         }
-    }).then((user)=>done(null,user))
+    })
+    .then((user)=>done(null,user))
     .catch(done)
 })
 

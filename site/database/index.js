@@ -66,9 +66,35 @@ const cartItems=foodorder.define('CartItems',{
         type: Sequelize.INTEGER,
         allowNull: false
     }
-
 })
 
+const orders=foodorder.define('Orders',{
+    id:{
+        type:Sequelize.INTEGER,
+        autoIncrement:true,
+        allowNull:false,
+        primaryKey:true
+    },
+    RestaName:{
+        type:Sequelize.STRING,
+        allowNull:false,
+    },
+    foodName:{
+        type:Sequelize.STRING,
+        allowNull:false,
+    },
+    quantity:{
+        type:Sequelize.INTEGER,
+        allowNull:false,
+    },
+    price: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    }
+})
+
+orders.belongsTo(users);
+users.hasMany(orders);
 
 cartItems.belongsTo(users);
 users.hasMany(cartItems);
@@ -78,5 +104,5 @@ foodorder.sync()
     .catch((err)=>console.error(err))
 
 module.exports={
-    users,cartItems
+    users,cartItems, orders
 }

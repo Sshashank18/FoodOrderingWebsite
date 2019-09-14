@@ -1,6 +1,5 @@
 const express=require('express')
-const {users}=require('./database')
-const {cartItems}=require('./database')
+const {users, cartItems, orders}=require('./database')
 const session=require('express-session')
 const passport=require('./passport')
 const routingrestaraunt=require('./routes');
@@ -37,22 +36,23 @@ app.get('/logout', function(req, res){
     res.redirect('/login');
 });
 
-app.get('/login/facebook', passport.authenticate('facebook'))
+app.get('/login/facebook', passport.authenticate('facebook'));
 
 app.get('/login/facebook/callback', passport.authenticate('facebook', {
   successRedirect: '/home',
   failureRedirect: '/login'
 }))
-app.get('/login/instagram', passport.authenticate('instagram'))
 
-app.get('/login/instagram/callback', passport.authenticate('instagram', {
+app.get('/auth/instagram', passport.authenticate('instagram'))
+
+app.get('/auth/instagram/callback', passport.authenticate('instagram', {
   successRedirect: '/home',
   failureRedirect: '/login'
 }))
 
 app.get('/login/google', passport.authenticate('google'))
 
-app.get('/login/google/callback', passport.authenticate('google', {
+app.get('/login/google/return', passport.authenticate('google', {
   successRedirect: '/home',
   failureRedirect: '/login'
 }))
@@ -65,6 +65,7 @@ app.post('/login',
     passport.authenticate('local',{
         successRedirect:'/home',
         failureRedirect:'/login',
+        failureFlash: true
     })
 )
 
@@ -98,7 +99,7 @@ app.patch("/user/update", (req, res) => {
 })
 
 app.get('/myorders',(req,res)=>{
-    cartItems.findAll({
+    orders.findAll({
         where: {
             UserId: req.user.id 
         },
@@ -109,7 +110,8 @@ app.get('/myorders',(req,res)=>{
     })
 })
 
-app.get('/payment',(req,res)=>{
+app.get('/payment/:total',checkLoggedin,(req,res)=>{
+    var totalp=req.params.total;
     cartItems.findAll({
         where: {
             UserId: req.user.id 
@@ -117,8 +119,16 @@ app.get('/payment',(req,res)=>{
         attributes: ["RestaName", "foodName", "quantity", "price"],
     })
     .then(cartItems => {
-        res.render('payment',{user:req.user,cart:cartItems});    
-    })
+        // console.log(cartItems);
+        const newCartItems = cartItems.map(cartItem => cartItem.get());
+        const cart = {
+            resname: newCartItems[0].RestaName,
+            fooditems: [],
+            total: totalp
+        }
+        cart.fooditems = newCartItems.map(cartItem => cartItem.foodName);
+        res.render('payment',{user:req.user,cart:cart});    
+    });
     
 });
 
@@ -126,7 +136,7 @@ app.get("/getUser", (req , res) => {
     res.send(req.user.username);
 })
 
-app.post('/payment',(req,res)=>{
+app.post('/addToCart',(req,res)=>{
     Promise.all(req.body.foodItems.map(item => {
         return cartItems.create({
             RestaName: req.body.resname,
@@ -135,8 +145,41 @@ app.post('/payment',(req,res)=>{
             UserId: req.user.id,
             price: item.pricePerItem
         })
-    }))
-    .then(() => res.redirect('/payment'));
+    })).then(()=>{
+        res.sendStatus(200);
+    })
+})
+
+app.post("/payment", (req, res) => {
+    cartItems.findAll({
+        where: {
+            UserId: req.user.id 
+        }
+    })
+        .then(items => {
+            Promise.all(items.map(item => {
+                orders.create({
+                    RestaName: item.RestaName,
+                    foodName: item.foodName,
+                    quantity: item.quantity,
+                    UserId: req.user.id,
+                    price: item.price
+                })
+                
+            
+                
+            }))
+            .then(() => {
+                cartItems.destroy({
+                    where: 
+                    {
+                        UserId: req.user.id
+                    }
+                })
+                res.redirect('/home');
+            })
+            .catch(console.log);
+        });
 })
 
 
