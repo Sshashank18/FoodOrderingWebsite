@@ -1,6 +1,15 @@
 
     var name,phone,address;
 
+    var animation = bodymovin.loadAnimation({
+        container: document.getElementById('lottie'), // Required
+        path: '/CSS/images/deliveryMan.json', // Required
+        renderer: 'svg', // Required
+        loop: true, // Optional
+        autoplay: true, // Optional
+      })
+    
+
     $('#apply').click(()=>{
         
         name=document.getElementById('name').value;
@@ -38,9 +47,20 @@
     $('#pay').click(()=>{
         $.post("/payment")
         .then(() => {
-            window.location='/home';
+            $(".loading").css({
+                "display": "block"
+                
+            });
+            $(".container").css({
+                "filter": "blur(20px)"    
+            })
+            setTimeout(() => {
+                window.location='/home';
+            }, 4000);
+            
         })
         
     })
+
     
 

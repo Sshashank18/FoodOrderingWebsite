@@ -15,9 +15,11 @@
     
 
     <link rel="stylesheet" href="/CSS/payment.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.8/lottie.min.js"></script>
 
 </head>
 <body>
+    
     <div class="container">
         <div class="strip"></div>
         <div class="payment">
@@ -63,6 +65,7 @@
             <button id="pay" class="btn btn-success">Pay</button>
         </div>
     </div>
+
     <!-- Modal -->
     <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -83,6 +86,13 @@
             </div>
         </div>
     </div>
+
+    <div class="loading">
+        <div id="lottie"></div>
+        <h3>Your Order Has Been Placed</h3>
+    </div>
+    
+
     <script src="/JSfiles/payment.js"></script>
 </body>
 </html>

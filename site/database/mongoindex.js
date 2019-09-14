@@ -5,6 +5,7 @@ connectdb("RestarauntsList").then(db =>{
     return restaraunts.insertMany([
         {
             Name:'Yellow Bowl',
+            Image: "/CSS/images/restarauntImages/yellowbowl.png",
             FoodTimeBreakfast:true,
             FoodTimeLunch:true,
             FoodTimeDinner:false,
@@ -61,6 +62,7 @@ connectdb("RestarauntsList").then(db =>{
         },
         {
             Name:'Om Sweets',
+            Image: "/CSS/images/restarauntImages/omsweets.jpg",
             FoodTimeBreakfast:true,
             FoodTimeLunch:false,
             FoodTimeDinner:false,
@@ -89,6 +91,7 @@ connectdb("RestarauntsList").then(db =>{
         },
         {
             Name:'Madras Cafe',
+            Image: "/CSS/images/restarauntImages/madrascafe.jpg",
             FoodTimeBreakfast:true,
             FoodTimeLunch:false,
             FoodTimeDinner:true,
@@ -120,6 +123,7 @@ connectdb("RestarauntsList").then(db =>{
         },
         {
             Name:'Keventers',
+            Image: "/CSS/images/restarauntImages/keventers.jpg",
             FoodTimeBreakfast:false,
             FoodTimeLunch:true,
             FoodTimeDinner:false,
@@ -150,6 +154,7 @@ connectdb("RestarauntsList").then(db =>{
         },
         {
             Name:'Fast Food Corner',
+            Image: "/CSS/images/restarauntImages/fastfoodcorner.png",
             FoodTimeBreakfast:true,
             FoodTimeLunch:true,
             FoodTimeDinner:false,
@@ -187,6 +192,7 @@ connectdb("RestarauntsList").then(db =>{
         },
         {
             Name:'Drink Factory',
+            Image: "/CSS/images/restarauntImages/drinkfactory.jpg",
             FoodTimeBreakfast:true,
             FoodTimeLunch:true,
             FoodTimeDinner:true,
@@ -217,7 +223,8 @@ connectdb("RestarauntsList").then(db =>{
             }
         },
         {
-        Name:'Sweets Shop',
+            Name:'Sweets Shop',
+            Image: "/CSS/images/restarauntImages/sweetsshop.jpg",
             FoodTimeBreakfast:true,
             FoodTimeLunch:true,
             FoodTimeDinner:false,

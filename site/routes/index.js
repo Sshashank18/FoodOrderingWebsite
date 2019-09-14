@@ -86,10 +86,7 @@ router.get('/type/:foodtype/order/:name',async (req,res)=>{
         let selectedRes=restaraunts.filter((restaraunt)=>{
             if(restaraunt.Name == Name)
                 return restaraunt;
-
-                
         })
-        console.log(selectedRes);
         res.render('orderingrestaraunt',{selectedRes});
     })
 })

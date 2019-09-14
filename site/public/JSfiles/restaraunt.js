@@ -17,7 +17,7 @@ $(()=>{
                 filteredRestaraunts.map((restaraunt) => {
                     list.append(`
                         <div class="mlist" value="${restaraunt.FoodType}">
-                            <img class="card-img-top" src="/CSS/images/logobg4.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="${restaraunt.Image}" alt="Card image cap">
                             <div class="card-body mbody">
                                 <h5 class="card-title title">${restaraunt.Name}</h5>
                                 <p class="card-text">${restaraunt.Rating} ⭐</p>
