@@ -55,28 +55,28 @@ Check if it started working by going to http://localhost:27017
 ## Screenshots
 
 ### Home
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Home.png">
+<img src = "https://res.cloudinary.com/deucalion/image/upload/v1591106556/Home_j88azi.png">
 
 ### Sign Up
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Sign_up.png">
+<img src = "https://res.cloudinary.com/deucalion/image/upload/v1591106556/Sign_up_jatase.png">
 
 ### Sign In
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Signin.png">
+<img src = "https://res.cloudinary.com/deucalion/image/upload/v1591106556/Signin_x5miox.png">
 
 ### Logged In Home
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Loggedin.png">
+<img src = "https://res.cloudinary.com/deucalion/image/upload/v1591106555/Loggedin_t1p3aj.png">
 
 ### Catgories
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Categories.png">
+<img src = "https://res.cloudinary.com/deucalion/image/upload/v1591106555/Categories_ykwcg8.png">
 
 ### Placing Order
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Order.png">
+<img src = "https://res.cloudinary.com/deucalion/image/upload/v1591106555/Order_m6y0v8.png">
 
 ### Order Summary
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Summary.png">
+<img src = "https://res.cloudinary.com/deucalion/image/upload/v1591106556/Summary_nxyiqt.png">
 
 ### Order Placed
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Order_Placed.png">
+<img src = "https://res.cloudinary.com/deucalion/image/upload/v1591106555/Order_Placed_juq5ju.png">
 
-### My Orders
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/your_orders.png">
+### Your Orders
+<img src = "https://res.cloudinary.com/deucalion/image/upload/v1591106556/your_orders_sxviwq.png">
