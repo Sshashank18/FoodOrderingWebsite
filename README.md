@@ -44,7 +44,7 @@ To run api server, run
 
 ## Database Setup
 
-To start the database, navigate to site/database/mongodb and then on the terminal, write the following command:
+To start the database, navigate to site/database and then on the terminal, write the following command:
 ```
   mongod --dbpath = "./"
 ```
@@ -55,28 +55,28 @@ Check if it started working by going to http://localhost:27017
 ## Screenshots
 
 ### Home
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/screenshots/Home.png">
+<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Home.png">
 
 ### Sign Up
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/screenshots/Sign_up.png">
+<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Sign_up.png">
 
 ### Sign In
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/screenshots/Signin.png">
+<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Signin.png">
 
 ### Logged In Home
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/screenshots/Loggedin.png">
+<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Loggedin.png">
 
 ### Catgories
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/screenshots/Categories.png">
+<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Categories.png">
 
 ### Placing Order
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/screenshots/Order.png">
+<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Order.png">
 
 ### Order Summary
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/screenshots/Summary.png">
+<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Summary.png">
 
 ### Order Placed
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/screenshots/Order_Placed.png">
+<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/Order_Placed.png">
 
 ### My Orders
-<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/screenshots/your_orders.png">
+<img src = "https://github.com/Sshashank18/FoodOrderingWebsite/tree/master/screenshots/your_orders.png">
