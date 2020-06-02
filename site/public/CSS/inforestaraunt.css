@@ -3,6 +3,11 @@
     width:100%;
     height:50px;
 }
+#resimage{
+    margin-right:50px;
+    float:left;
+}
+
 #menuhead{
     font-family:Raleway;
 }

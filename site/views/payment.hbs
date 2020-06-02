@@ -53,14 +53,15 @@
         <div class="order">
             <h2 id="head3">Order</h2>
             <div id="food">
-                <h3 class="detail">Restaraunt Name:</h3>
+                <h5 class="grid3">Restaraunt Name:</h5>
                 {{cart.resname}}
                 <br>
+                <h5 >Food Name:</h5>
                 {{#each cart.fooditems as |item|}}
-                    {{item}}
+                    {{item}}<br>
                 {{/each}}
-                <h3 class="detail">Total :</h3>
-                {{cart.total}}
+                <h3 class="grid3">Total :</h3>
+                ₹{{cart.total}}
             </div>
             <button id="pay" class="btn btn-success">Pay</button>
         </div>

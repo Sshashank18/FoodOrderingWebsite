@@ -63,31 +63,7 @@ passport.use(
       }
     ));
 
-    passport.use(new GoogleStrategy({
-        callbackURL: 'http://localhost:4500/login/google/return',
-        passReqToCallback: true,
-        clientID: "473417843783-smd372mi962m1biispkg84ocsfm1lsbd.apps.googleusercontent.com",
-        clientSecret: "TShCPKcImKviHHUEaWC8scPA",
-        scope: "https://mail.google.com"
-      },
-      function(request, accessToken, refreshToken, profile, done) {
-        console.log(profile);
-        // users.findOrCreate({
-        //     where: {
-        //         email: profile.id,
-        //         username: profile.displayName,
-        //         password: profile.id,
-        //         phoneno: " ",
-        //         address: " "
-        //     }
-        // })
-        //     .then((user) => done(null, user[0].get()))
-        //     .catch(err => console.log(err));
-        
-      }
-    ));
-
-
+    
 passport.serializeUser((user,done)=>{
     done(null,user.id)
 })

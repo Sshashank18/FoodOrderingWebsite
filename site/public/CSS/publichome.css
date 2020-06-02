@@ -4,7 +4,7 @@ body{
 .logobg{
     height:350px;
     max-width: 100%;
-    filter: blur(2.7px)
+    filter: blur(1px)
 }
 
 .mcontainer{

@@ -50,12 +50,6 @@ app.get('/auth/instagram/callback', passport.authenticate('instagram', {
   failureRedirect: '/login'
 }))
 
-app.get('/login/google', passport.authenticate('google'))
-
-app.get('/login/google/return', passport.authenticate('google', {
-  successRedirect: '/home',
-  failureRedirect: '/login'
-}))
 
 app.get('/signup',(req,res)=>{
     res.render('signup')

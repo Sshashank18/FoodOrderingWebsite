@@ -27,10 +27,11 @@
             <div class="item col-8">
                 {{#each selectedRes as |res|}}
                     <div>
-                        <img src>
+                        <br>
+                        <img src="{{res.Image}}" width="250px" id="resimage">
                         <h2 id="ResName">{{res.Name}}</h2>
                         <h6>{{res.FoodType}}</h6>
-                        {{res.Rating}}
+                        {{res.Rating}}⭐
                     </div>
                     <br><br>
                     <div class="menu">
